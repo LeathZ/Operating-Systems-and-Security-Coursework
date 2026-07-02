@@ -125,7 +125,7 @@ void simulate_lru(int pages[], int total_pages) {
             lru_buffer[target_index] = page;
             last_used_time[target_index] = current_time;
             
-            printf("Page %d -> FAULT -> Buffer: [ ", page);
+            printf("Page %d -> FAULT -S> Buffer: [ ", page);
             for (int k = 0; k < FRAME_SIZE; k++) {
                 if (lru_buffer[k] == -1) printf("- ");
                 else printf("%d ", lru_buffer[k]);
@@ -140,7 +140,7 @@ void simulate_lru(int pages[], int total_pages) {
 //Main function
 int main() {
     //Array with strings to simulate page requests
-    int page_requests[] = {1, 2, 3, 4, 5, 2, 1, 6, 4};
+    int page_requests[] = {1, 2, 3, 4, 5, 2, 1, 6, 4, 1, 2, 4, 3, 5};
     int total_requests = sizeof(page_requests) / sizeof(page_requests[0]);
 
     //Simulating FIFO then LRU
